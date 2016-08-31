@@ -14,10 +14,19 @@ en:
 
   containt:
     init: "Welcome E Learning"
+    notice: "Invalid email/password combination"
+
+  signup_page:
+    signup: "Sign up"
+    confirmation: "Confirmation"
+    password: "Password"
+
+  login_page:
+    new_user: "Don't have account?"
 
   footer:
     page_name: "E Learning System"
 
   button_text: "Save change"
-  button_create: "Create"
+  button_create: "Create my account"
   button_signup: "Sign up now!"
