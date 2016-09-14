@@ -16,81 +16,6 @@ User.create name: "duong",
   password: "1",
   password_confirmation: "1"
 
-Category.create name: "Tieng anh",
-  description: "Tieng anh"
-
-Category.create name: "Dong vat",
-  description: "Dong vat"
-
-Word.create content: "hello",
-  category_id: "1"
-
-Word.create content: "hi",
-  category_id: "1"
-
-Word.create content: "nice",
-  category_id: "1"
-
-Word.create content: "Shine",
-  category_id: "1"
-
-Word.create content: "Find",
-  category_id: "1"
-
-Word.create content: "test",
-  category_id: "1"
-
-Answer.create word_id: "1",
-  is_correct: "true",
-  content: "hello"
-Answer.create word_id: "1",
-  is_correct: "false",
-  content: "helo"
-
-Answer.create word_id: "2",
-  is_correct: "false",
-  content: "hie"
-Answer.create word_id: "2",
-  is_correct: "true",
-  content: "hi"
-
-Answer.create word_id: "3",
-  is_correct: "true",
-  content: "nice"
-Answer.create word_id: "3",
-  is_correct: "false",
-  content: "nie"
-
-Answer.create word_id: "4",
-  is_correct: "false",
-  content: "shie"
-Answer.create word_id: "4",
-  is_correct: "true",
-  content: "shine"
-
-Answer.create word_id: "5",
-  is_correct: "false",
-  content: "fin"
-
-Answer.create word_id: "5",
-  is_correct: "true",
-  content: "find"
-
-Answer.create word_id: "6",
-  is_correct: "false",
-  content: "te"
-Answer.create word_id: "6",
-  is_correct: "true",
-  content: "test"
-
-Lesson.create user_id: "2",
-  category_id: "1"
-
-Result.create lesson_id: "1",
-  word_id: "1",
-  answer_id: "1"
-
-
 40.times do |n|
   name  = Faker::Name.name
   email = "user-#{n+1}@gmail.com"
@@ -106,3 +31,26 @@ following = users[2..50]
 followers = users[3..40]
 following.each {|followed| user.follow(followed)}
 followers.each {|follower| follower.follow(user)}
+
+
+10.times do |category|
+  name  = "Category #{category+1}"
+  description = "Here is the description of the #{category+1} course"
+  Category.create!(name:  name, description: description)
+end
+
+5.times do |category|
+  category_id = category+1;
+  20.times do |i|
+    content = "question #{i+1} #{category_id}"
+    word = Word.create!(category_id: category_id, content: content)
+    content_answer1 = "content 1"
+    Answer.create!(word_id:  word.id, content: content_answer1, is_correct: true)
+    content_answer2 = "content 2"
+    Answer.create!(word_id:  word.id, content: content_answer2, is_correct: false)
+    content_answer3 = "content 3"
+    Answer.create!(word_id:  word.id, content: content_answer3, is_correct: false)
+    content_answer4 = "content 4"
+    Answer.create!(word_id:  word.id, content: content_answer4, is_correct: false)
+  end
+end

@@ -26,7 +26,7 @@ en:
     do_lesson: "Do lesson"
     start: "Start"
     finish: "Finish"
-
+  error: "Error"
   word:
     answer: "Answer"
     content: "Word"
@@ -132,6 +132,8 @@ en:
     category: "Category"
     header_score: "Score"
     show: "Show"
+    not_lesson: "you have not done exams"
+    do: "Do lesson"
 
   create_new_word: "Create new word"
   more_info: "More infor"

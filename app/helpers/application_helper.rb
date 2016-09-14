@@ -17,4 +17,10 @@ module ApplicationHelper
   def set_class_result answer
     answer && answer.is_correct? ? "true" : "false"
   end
+
+  def correct_answer answers
+    answers.each do |answer|
+      return answer.content if answer.is_correct?
+    end
+  end
 end

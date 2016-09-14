@@ -1,7 +1,7 @@
 <% provide :title, t("categories.all_category") %>
 <h1 class="text-center"><%= t "header.category" %></h1>
 <div class="index-category">
-  <aside class="col-md-10 col-md-offset-1">
+  <aside>
     <%= render "search_category" %>
     <% @categories.each do |category| %>
       <div class="col-sm-4 category-style">
@@ -14,4 +14,8 @@
       </div>
     <% end %>
   </aside>
+  <div class="clearfix"></div>
+</div>
+<div class="td-paginate">
+  <%= will_paginate %>
 </div>
