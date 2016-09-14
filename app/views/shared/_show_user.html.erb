@@ -1,14 +1,17 @@
-<div class="col-md-3">
+<div class="col-sm-3">
   <aside>
     <section class="user_infor">
-      <h1>
-        <%= gravatar_for @user %>
+      <div class="td-image">
+        <div class="td-box-img"><%= gravatar_for @user %></div>
+        <div class="clearfix"></div>
+      </div>
+      <h1 class="text-center">
         <%= @user.name %>
       </h1>
     </section>
   </aside>
   <div>
-    <section class="stats">
+    <section class="stats text-center">
       <%= render "shared/stats" %>
     </section>
   </div>

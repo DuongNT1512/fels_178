@@ -9,9 +9,6 @@ class LessonsController < ApplicationController
 
   def index
     @lessons = current_user.lessons.paginate page: params[:page], per_page: Settings.page
-    if @lessons.blank?
-      flash[:danger] = t "lesson.not_lesson"
-    end
   end
 
   def create

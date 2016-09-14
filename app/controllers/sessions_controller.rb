@@ -18,6 +18,6 @@ class SessionsController < ApplicationController
   def destroy
     current_user.create_activity "logout"
     log_out if logged_in?
-    redirect_to root_url
+    redirect_to login_path
   end
 end
