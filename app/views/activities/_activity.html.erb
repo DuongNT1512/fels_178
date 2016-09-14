@@ -1,0 +1,13 @@
+<li>
+  <span class="td-content">
+    <%= content activity.activity_type %>
+    <% if activity.following? %>
+      <%= link_to activity.target.name, user_path(activity.target) %>
+    <% elsif activity.learned? %>
+      <%= link_to activity.target.name, category_path(activity.target) %>
+    <% end %>
+  </span>
+  <span class="timestamp">
+    <%= time_ago_in_words activity.created_at %> <%= t :ago %>
+  </span>
+</li>

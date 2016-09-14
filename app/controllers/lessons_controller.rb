@@ -29,6 +29,7 @@ class LessonsController < ApplicationController
     if @lesson.update_attributes lesson_params
       check_lesson_status
       flash[:success] = t "lesson.finish"
+      current_user.create_activity "learned", @lesson.category_id
     else
       flash[:danger] = t "lesson.update_fails"
     end

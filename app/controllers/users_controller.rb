@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :find_user, except: [:new, :index, :create]
+  before_action :logged_in_user, except: [:new, :create]
+
   def new
     @user = User.new
   end
@@ -9,6 +11,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    @feed_items = Activity.feed(current_user.following_ids, current_user.id).
+      order_by_time.paginate page: params[:page], per_page: Settings.page_size
+    @activities = @user.activities.order_by_time.paginate page: params[:page],
+      per_page: Settings.page_size
     @relationship = if current_user.following? @user
       current_user.active_relationships.find_by followed_id: @user.id
     else

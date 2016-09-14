@@ -6,7 +6,6 @@ html {
   box-sizing: border-box;
 }
 body {
-  padding-top: 50px;
   position: relative;
   margin: 0;
   padding-bottom: 60px;
@@ -415,4 +414,26 @@ todo-list>li>input[type="checkbox"] {
   display: block;
   margin: 0 auto;
   padding: 8px 15px;
+}
+
+.activities {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 5px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .td-content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
 }

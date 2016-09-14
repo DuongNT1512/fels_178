@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by email: params[:session][:email].downcase
     if user && user.authenticate(params[:session][:password])
       log_in user
+      current_user.create_activity "login"
       user.admin? ? redirect_to(admin_root_path) : redirect_to(root_path)
     else
       flash.now[:danger] = t "containt.notice"
@@ -14,6 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    current_user.create_activity "logout"
     log_out if logged_in?
     redirect_to root_url
   end

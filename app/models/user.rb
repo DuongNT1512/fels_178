@@ -27,6 +27,7 @@ class User < ApplicationRecord
 
   def follow other_user
     active_relationships.create followed_id: other_user.id
+    create_activity "following", other_user.id
   end
 
   def unfollow other_user
@@ -35,6 +36,10 @@ class User < ApplicationRecord
 
   def following? other_user
     following.include? other_user
+  end
+
+  def create_activity activity_type, target_id = nil
+    activities.create activity_type: activity_type, target_id: target_id
   end
 
   private
