@@ -1,9 +1,11 @@
 <% provide :title, @user.name %>
 <%= render "shared/show_user" %>
 <% if logged_in? %>
-  <div class="row ">
+  <div class="col-sm-9">
     <div class="col-md-8 col-md-offset-2 dn-front-group">
-      <h1><%= t "activity.recent_activities" %></h1>
+      <h1>
+        <%= t "activity.recent_activities" %>
+      </h1>
       <% if @feed_items.any? %>
         <ul class="activities">
           <%= render @feed_items %>

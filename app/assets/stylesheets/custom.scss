@@ -225,7 +225,7 @@ h1, h2, h3 {
 }
 
 .td-body {
-  margin-top: 55px;
+  margin-top: 51px;
 }
 
 .lm-category {
@@ -413,7 +413,9 @@ todo-list>li>input[type="checkbox"] {
   display: block;
   margin: 0 auto;
   padding: 8px 15px;
-.td-button{
+}
+
+.td-button {
   width: 190px;
   margin: 0 auto;
 }
@@ -445,5 +447,36 @@ todo-list>li>input[type="checkbox"] {
     color: $gray-light;
     display: block;
     margin-left: 60px;
+  }
+}
+.td-input input {
+  width: auto !important;
+}
+.edit_lesson {
+  ol {
+    margin-top: 50px;
+    .td-lesson-question {
+      margin-bottom: 20px;
+      label {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+    li {
+      margin-bottom: 20px;
+    }
+  }
+}
+.user_infor{
+  .td-box-img {
+    width: 70%;
+    margin: 0 auto;
+    img {
+      width: 100%;
+    }
+  }
+  h1{
+    font-size: 35px !important;
+    margin-top: 20px !important;
   }
 }

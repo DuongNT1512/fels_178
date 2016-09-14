@@ -1,7 +1,7 @@
 <div class="text-center">
   <div class="timer">
     <h4><%= t "lesson.remaining_time" %></h4>
-    <div id="clock" class="col-md-4 col-md-offset-4"></div>
+    <div id="clock" class="col-sm-4 col-sm-offset-4"></div>
     <%= hidden_field_tag :remaining_time, @remaining_time %>
   </div>
 </div>
@@ -14,11 +14,15 @@
     <%= f.hidden_field :status, value: :finished %>
     <%= f.fields_for :results do |t| %>
       <li><%= t.label t.object.word.content %></li>
-      <div class="row">
+      <div class="row td-lesson-question">
         <% t.object.word.answers.each do |answer| %>
-          <div class="col-md-8 col-md-offset-2">
-            <%= answer.content %>
-            <%= t.radio_button :answer_id, answer.id %>
+          <div class="col-sm-6">
+            <label class="text-center">
+              <span class="td-input text-center">
+                <%= t.radio_button :answer_id, answer.id %>
+              </span>
+              <span class="text-center"><%= answer.content %></span>
+            </label>
           </div>
         <% end %>
       </div>

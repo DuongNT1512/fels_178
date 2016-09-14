@@ -1,21 +1,24 @@
 <% provide :title, t("categories.all_category") %>
-<h1 class="text-center"><%= t "header.category" %></h1>
-<div class="index-category">
-  <aside>
-    <%= render "search_category" %>
-    <% @categories.each do |category| %>
-      <div class="col-sm-4 category-style">
-        <div class="lm-category w3-quarter w3-container w3-margin-bottom">
-          <%= image_tag "category.jpg", class: "text-center lm-img" %>
+<div class="td-cate-index">
+  <h1 class="text-center"><%= t "header.category" %></h1>
+  <div class="index-category">
+    <aside>
+      <%= render "search_category" %>
+      <% @categories.each do |category| %>
+        <div class="col-sm-4 category-style">
+          <div class="lm-category w3-quarter w3-container w3-margin-bottom">
+            <%= link_to image_tag("category.jpg",
+              class: "text-center lm-img"), category %>
+          </div>
+          <p class="text-center lm-cate-name">
+            <%= link_to category.name, category %>
+          </p>
         </div>
-        <p class="text-center lm-cate-name">
-          <%= link_to category.name, category %>
-        </p>
-      </div>
-    <% end %>
-  </aside>
-  <div class="clearfix"></div>
-</div>
-<div class="td-paginate">
-  <%= will_paginate %>
+      <% end %>
+    </aside>
+    <div class="clearfix"></div>
+  </div>
+  <div class="td-paginate">
+    <%= will_paginate %>
+  </div>
 </div>
