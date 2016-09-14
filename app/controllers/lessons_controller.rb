@@ -9,7 +9,7 @@ class LessonsController < ApplicationController
 
   def index
     @lessons = current_user.lessons.paginate page: params[:page], per_page: Settings.page
-    if @lessons.nil?
+    if @lessons.blank?
       flash[:danger] = t "lesson.not_lesson"
     end
   end
@@ -43,7 +43,7 @@ class LessonsController < ApplicationController
   end
 
   def find_lesson
-    @lesson = current_user.lessons.includes(results: [:word, :answer]).
+    @lesson = current_user.lessons.includes(results: [:answer, word: :answers]).
       find_by_id params[:id]
     if @lesson.nil?
       flash[:danger] = t "notice.not_lesson"

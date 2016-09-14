@@ -1,9 +1,10 @@
 <div class="search-form">
   <%= form_tag categories_path, method: :get do %>
-    <%= label_tag :search %>
     <div class="fl-div-word row", id="search-category-form" >
-      <div class="col-md-8"><%= text_field_tag :search %></div>
-      <div class="col-md-4"><%= submit_tag t "containt.search",
+      <div class="col-sm-7 col-sm-offset-1">
+        <%= text_field_tag :search %>
+      </div>
+      <div class="col-sm-3"><%= submit_tag t "containt.search",
         class: "btn btn-primary" %>
       </div>
     </div>

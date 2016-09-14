@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
 
   private
   def find_category
-    @category = Category.find_by_id params[:id]
+    @category = Category.includes(words: :answers).find_by_id params[:id]
     if @category.nil?
       flash[:danger] = t "notice.not_category"
       redirect_to root_url

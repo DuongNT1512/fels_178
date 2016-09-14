@@ -15,7 +15,7 @@
     <%= f.fields_for :results do |t| %>
       <li><%= t.label t.object.word.content %></li>
       <div class="row">
-        <% t.object.word_answers.each do |answer| %>
+        <% t.object.word.answers.each do |answer| %>
           <div class="col-md-8 col-md-offset-2">
             <%= answer.content %>
             <%= t.radio_button :answer_id, answer.id %>
