@@ -13,11 +13,11 @@
     <%= f.hidden_field :lesson_id, value: @lesson.id %>
     <%= f.hidden_field :status, value: :finished %>
     <%= f.fields_for :results do |t| %>
-      <li><%= t.label t.object.word.content %></li>
+      <li><em><%= t.label t.object.word.content %></em></li>
       <div class="row td-lesson-question">
         <% t.object.word.answers.each do |answer| %>
-          <div class="col-sm-6">
-            <label class="text-center">
+          <div class="col-sm-12">
+            <label>
               <span class="td-input text-center">
                 <%= t.radio_button :answer_id, answer.id %>
               </span>

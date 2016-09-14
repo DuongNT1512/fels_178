@@ -12,12 +12,15 @@
   </thead>
   <tbody>
     <% @lesson.results.each do |result| %>
-      <tr class="<%= set_class_result result.answer %>">
+      <tr>
         <td><%= result.word.content %></td>
-        <td><%= result.answer.present? ?
-          result.answer.content : "" %></td>
-        <td><%= result.answer && result.answer.is_correct? ?
-          t("lesson.right") : t("lesson.wrong") %></td>
+        <td><%= result.answer.present? ? result.answer.content : "" %></td>
+        <td>
+          <div class="btn <%= set_class_result result.answer%>">
+            <%= result.answer && result.answer.is_correct? ?
+              t("lesson.right") : t("lesson.wrong") %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>

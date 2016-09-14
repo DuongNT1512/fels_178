@@ -8,11 +8,10 @@
   <tbody>
     <% @lessons.each do |lesson| %>
       <tr>
-        <td><%= lesson.category.name %></td>
+        <td><%= link_to lesson.category.name, lesson %></td>
         <td><%= lesson.count_answer %></td>
-        <td><%= link_to t("lesson.show"), lesson %></td>
       </tr>
     <% end %>
-    <%= will_paginate %>
   </tbody>
 </table>
+<%= will_paginate %>

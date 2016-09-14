@@ -17,13 +17,9 @@
         </tr>
       </thead>
       <tbody id="show-category">
-        <% @words.each do |word| %>
-          <tr class="text-center">
-            <td><%= word.content %></td>
-            <td><%= correct_answer word.answers %></td>
-          </tr>
-        <% end %>
+        <%= render partial: "learn_word", collection: @words, as: :word %>
       </tbody>
     </table>
+    <%= will_paginate @words %>
   </aside>
 </div>

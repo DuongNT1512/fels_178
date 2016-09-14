@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
 
   def show
     @lesson = @category.lessons.new
-    @words = @category.words
+    @words = @category.words.paginate page: params[:page], per_page: Settings.page
   end
 
   private
